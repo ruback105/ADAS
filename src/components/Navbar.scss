@@ -20,10 +20,19 @@
                         }
                 }
 
+                @media screen and (min-width: 400px) {
+                        .left-menu {
+                                margin-left: 20px;
+                        }
+
+                        .right-menu {
+                                margin-right: 20px;
+                        }
+                }
+
                 .left-menu {
                         float: left;
-                        margin-left: 20px;
-
+                        
                         .nav-menu {
                                 padding: 0;
                         }
@@ -31,7 +40,6 @@
 
                 .right-menu {
                         float: right;
-                        margin-right: 20px;
                 }
 
                 ul {

@@ -1,31 +1,30 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Navbar.scss';
 
 function Navbar() {
     const [click, setClick] = useState(false);
 
     const handleClick = () => setClick(!click);
 
-    const closeMobileMenu = () => setClick(false);
-
     return (
         <>
             <nav className='navbar'>
                 <div className='navbar-container'>
                     <div className='left-menu'>
-                        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                        <ul className='nav-menu'>
                             <li className='nav-item'>
-                                <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                                <Link to='/' className='nav-links'>
                                     File
                                 </Link>
                             </li>
                             <li className='nav-item'>
-                                <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                                <Link to='/' className='nav-links'>
                                     Edit
                                 </Link>
                             </li>
                             <li className='nav-item'>
-                                <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                                <Link to='/' className='nav-links'>
                                     View
                                 </Link>
                             </li>
@@ -36,7 +35,7 @@ function Navbar() {
                         <ul>
                             <li className='nav-item user'>
                                 <Link to='/user' className='nav-links-user'>
-                                    Welcome, 
+                                    Welcome
                                 </Link>
                             </li>
                             <li className='nav-item login'>
@@ -46,7 +45,6 @@ function Navbar() {
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
         </>

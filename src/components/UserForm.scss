@@ -23,6 +23,11 @@
         .react-datepicker-wrapper {
             margin: 20px 20px;
             display: block;
+
+            input {
+                width: 25%;
+                height: 40px;
+            }
         }
     }
 

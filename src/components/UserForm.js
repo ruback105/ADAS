@@ -8,10 +8,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import './UserForm.scss';
 
 function UserForm() {
-    const [click, setClick] = useState(false);
-
-    const handleClick = () => setClick(!click);
-
     const options = [
         'Profesija', 'Programmētajs', 'Testētajs', 'Finansists'
     ];
@@ -19,6 +15,10 @@ function UserForm() {
     const defaultOption = options[0];
 
     const [startDate, setStartDate] = useState(new Date());
+
+    const reload = () => {
+        window.location.reload();
+    }
 
     return (
         <>
@@ -36,7 +36,7 @@ function UserForm() {
                 <img className='user-image' src='./images/image.jpg' />
 
                 <div className='form-buttons'>
-                    {Button && <Button link='/' linkClass='new-form'>Jauna forma</Button>}
+                    {Button && <Button link='/' linkClass='new-form' onClickAction={reload}>Jauna forma</Button>}
                     {Button && <Button link='/' linkClass='submit'>Submit</Button>}
                 </div>
             </div>

@@ -6,7 +6,8 @@
     margin: 20px 30px;
 
     .input-form {
-        .user--input--field, .Dropdown-root {
+        .user--input--field,
+        .Dropdown-root {
             width: 40%;
         }
 
@@ -32,8 +33,8 @@
     }
 
     .user-image {
+        width: 25%;
         max-width: 200px;
-        max-height: auto;
         float: right;
         position: absolute;
         right: 20px;

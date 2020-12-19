@@ -1,13 +1,13 @@
 import React from 'react'
-import './InputField.scss'
-import { Link } from 'react-router-dom';
+import './styles/InputField.scss'
 
 const STYLES = ['user--input--field'];
 
 export const InputField = ({
-    content,
     placeholder,
-    inputStyle
+    inputStyle,
+    onChange,
+    valueData
 }) => {
 
     const checkInputStyle = STYLES.includes(inputStyle) ? inputStyle : STYLES[0];
@@ -15,7 +15,9 @@ export const InputField = ({
     return (
         <input
             className={`${checkInputStyle}`}
-            placeholder={placeholder}>{content}
+            placeholder={placeholder}
+            value={valueData}
+            onChange={onChange}>
         </input>
     )
 };

@@ -1,6 +1,6 @@
 :root {
     --primary: #fff;
-    --secondary: #242424
+    --secondary: #242424;
 }
 
 .btn {
@@ -42,4 +42,18 @@
     background: var(--primary);
     color: var(--secondary);
     transition: all 0.3s ease-out;
+}
+
+@media (min-width: 1024px) {
+    button {
+        height: 100%;
+        width: 15%;
+    }
+}
+
+@media (max-width: 1023px) {
+    button {
+        height: 100%;
+        width: 25%;
+    }
 }

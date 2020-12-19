@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.scss';
+import './styles/Navbar.scss';
 
 function Navbar() {
-    const [click, setClick] = useState(false);
-
-    const handleClick = () => setClick(!click);
-
     return (
         <>
             <nav className='navbar'>

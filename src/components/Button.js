@@ -1,6 +1,5 @@
 import React from 'react'
-import './Button.scss'
-import { Link } from 'react-router-dom';
+import './styles/Button.scss'
 
 const STYLES = ['btn--default', 'btn--outline'];
 
@@ -8,23 +7,24 @@ const SIZES = ['btn--medium', 'btn--large'];
 
 export const Button = ({
     children,
-    onClickAction,
+    onClick,
     buttonStyle,
     buttonSize,
-    link,
-    linkClass
+    className,
+    type
 }) => {
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
 
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
     return (
-        <Link to={link} className={linkClass}>
             <button
                 className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-                onClick={onClickAction}>
+                onClick={onClick}
+                type={type}
+                className={className}
+                >
                 {children}
             </button>
-        </Link>
     )
 };

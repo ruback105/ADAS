@@ -1,0 +1,54 @@
+body {
+    height: 100vh;
+
+    #root {
+        height: 100%;
+        position: relative;
+    }
+}
+
+.qa-form {
+    margin-top: 50px;
+    .input-form {
+        margin: 0 20px;
+
+        .user--input--field {
+            width: -moz-available;
+            width: -webkit-fill-available;
+            width: fill-available;
+
+            &.test--case {
+                height: 150px;
+
+                .toolbar {
+                    display: none;
+                }
+
+                .rdw-editor-main {
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .form-buttons {
+        position: absolute;
+        right: 50px;
+        bottom: 50px;
+
+        button {
+            height: 50px;
+            width: 200px;
+            margin: 0 10px;
+        }
+    }
+}
+
+
+@media (max-width: 550px) {
+    .qa-form .form-buttons button {
+        width: 100px;
+        vertical-align: bottom;
+    }
+}
+

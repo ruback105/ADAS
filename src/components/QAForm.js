@@ -70,7 +70,8 @@ function QAForm() {
                         className='test-schedule'
                         placeholder='Schedule'
                         valueData={test_schedule}
-                        onChange={e => setSchedule(e.target.value)}>
+                        onChange={e => setSchedule(e.target.value)}
+                        pattern='([1-7,])*'>
                     </InputField>}
                 </div>
 

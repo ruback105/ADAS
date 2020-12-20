@@ -23,7 +23,7 @@ export const InputField = ({
             onChange={onChange}
             type={type}
             pattern={pattern}
-            inputmode={inputmode}>
+            inputMode={inputmode}>
         </input>
     )
 };

@@ -7,11 +7,11 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 function QAForm() {
-    const [website, setWebsite] = useState('');
+    const [website_name, setWebsite] = useState('');
     const [test_name, setName] = useState('');
-    const [test_path, setPath] = useState('');
+    const [script_path, setPath] = useState('');
     const [test_schedule, setSchedule] = useState('');
-    const [editorState, setEditorState] = useState(
+    const [test_case, setEditorState] = useState(
         () => EditorState.createEmpty(),
     );
 
@@ -22,8 +22,8 @@ function QAForm() {
     const onSubmitForm = async (e) => {
         e.preventDefault();
         try {
-            const body = { website, test_name, editorState, test_path, test_schedule };
-            console.log(body);
+            const test_case = document.querySelector('.DraftEditor-editorContainer span[data-text="true"]').textContent;
+            const body = { website_name, test_name, test_case, script_path, test_schedule };
             const response = await fetch('http://localhost:5000/auto-qa', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -40,18 +40,38 @@ function QAForm() {
         <Fragment>
             <form className='qa-form' onSubmit={onSubmitForm}>
                 <div className='input-form'>
-                    {InputField && <InputField className='test--name' placeholder='Website' valueData={website} onChange={e => setWebsite(e.target.value)}></InputField>}
-                    {InputField && <InputField className='test--name' placeholder='Test name' valueData={test_name} onChange={e => setName(e.target.value)}></InputField>}
+                    {InputField && <InputField
+                        className='test--name'
+                        placeholder='Website'
+                        valueData={website_name}
+                        onChange={e => setWebsite(e.target.value)}>
+                    </InputField>}
+                    {InputField && <InputField
+                        className='test--name'
+                        placeholder='Test name'
+                        valueData={test_name}
+                        onChange={e => setName(e.target.value)}>
+                    </InputField>}
                     <Editor
-                        editorState={editorState}
+                        editorState={test_case}
                         onEditorStateChange={setEditorState}
                         wrapperClassName="user--input--field test--case"
                         editorClassName="editor"
                         toolbarClassName="toolbar"
                         placeholder='Test case'
                     />
-                    {InputField && <InputField className='test--path' placeholder='Test path' valueData={test_path} onChange={e => setPath(e.target.value)}></InputField>}
-                    {InputField && <InputField className='test-schedule' placeholder='Schedule' valueData={test_schedule} onChange={e => setSchedule(e.target.value)}></InputField>}
+                    {InputField && <InputField
+                        className='test--path'
+                        placeholder='Test path'
+                        valueData={script_path}
+                        onChange={e => setPath(e.target.value)}>
+                    </InputField>}
+                    {InputField && <InputField
+                        className='test-schedule'
+                        placeholder='Schedule'
+                        valueData={test_schedule}
+                        onChange={e => setSchedule(e.target.value)}>
+                    </InputField>}
                 </div>
 
                 <div className='form-buttons'>

@@ -7,7 +7,10 @@ export const InputField = ({
     placeholder,
     inputStyle,
     onChange,
-    valueData
+    valueData,
+    type,
+    pattern,
+    inputmode
 }) => {
 
     const checkInputStyle = STYLES.includes(inputStyle) ? inputStyle : STYLES[0];
@@ -17,7 +20,10 @@ export const InputField = ({
             className={`${checkInputStyle}`}
             placeholder={placeholder}
             value={valueData}
-            onChange={onChange}>
+            onChange={onChange}
+            type={type}
+            pattern={pattern}
+            inputmode={inputmode}>
         </input>
     )
 };

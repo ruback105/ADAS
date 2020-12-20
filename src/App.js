@@ -7,16 +7,18 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Fragment>
-      <Router>
-        <Navbar />
-        <Switch>
-        <Route path='/' exact />
-          <Route path='/user' exact component={UserForm} />
-          <Route path='/qa' exact component={QAForm} />
-        </Switch>
-      </Router>
-    </Fragment>
+    <div className='container'>
+      <Fragment>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path='/' exact />
+            <Route path='/user' exact component={UserForm} />
+            <Route path='/qa' exact component={QAForm} />
+          </Switch>
+        </Router>
+      </Fragment>
+    </div>
   );
 }
 

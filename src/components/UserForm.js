@@ -26,7 +26,7 @@ function UserForm() {
         e.preventDefault();
         try {
             const position = document.getElementsByClassName("is-selected").item(0).innerHTML;
-            const body = {name, surname, position, working_hours, salary, bank_account, department_name};
+            const body = { name, surname, position, working_hours, salary, bank_account, department_name };
             const response = await fetch('http://localhost:5000/worker', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -43,16 +43,54 @@ function UserForm() {
         <Fragment>
             <form className='user-form' onSubmit={onSubmitForm}>
                 <div className='input-form'>
-                    {InputField && <InputField className='username' placeholder='Vārds' valueData={name} onChange={e => setName(e.target.value)}></InputField>}
-                    {InputField && <InputField className='surname' placeholder='Uzvārds' valueData={surname} onChange={e => setSurname(e.target.value)}></InputField>}
-                    <Dropdown options={options} value={position} placeholder="Select an option" />
-                    {InputField && <InputField className='hours' placeholder='Darba stundas' valueData={working_hours} onChange={e => setHours(e.target.value)}></InputField>}
-                    {InputField && <InputField className='salary' placeholder='Alga' valueData={salary} onChange={e => setSalary(e.target.value)}></InputField>}
-                    {InputField && <InputField className='account' placeholder='Bankas konts' valueData={bank_account} onChange={e => setAccount(e.target.value)}></InputField>}
-                    {InputField && <InputField className='department' placeholder='Nodaļa' valueData={department_name} onChange={e => setDepartment(e.target.value)}></InputField>}
+                    {InputField && <InputField
+                        className='username'
+                        placeholder='Vārds'
+                        valueData={name}
+                        onChange={e => setName(e.target.value)}>
+                    </InputField>}
+                    {InputField && <InputField
+                        className='surname'
+                        placeholder='Uzvārds'
+                        valueData={surname}
+                        onChange={e => setSurname(e.target.value)}>
+                    </InputField>}
+                    <Dropdown options={options}
+                        value={position}
+                        placeholder="Select an option" />
+                    {InputField && <InputField
+                        className='hours'
+                        type="number"
+                        pattern="[0-9]*"
+                        inputmode="numeric"
+                        placeholder='Darba stundas'
+                        valueData={working_hours}
+                        onChange={e => setHours(e.target.value)}>
+                    </InputField>}
+                    {InputField && <InputField
+                        className='salary'
+                        type="number"
+                        pattern="[0-9]*"
+                        inputmode="numeric"
+                        placeholder='Alga'
+                        valueData={salary}
+                        onChange={e => setSalary(e.target.value)}>
+                    </InputField>}
+                    {InputField && <InputField
+                        className='account'
+                        placeholder='Bankas konts'
+                        valueData={bank_account}
+                        onChange={e => setAccount(e.target.value)}>
+                    </InputField>}
+                    {InputField && <InputField
+                        className='department'
+                        placeholder='Nodaļa'
+                        valueData={department_name}
+                        onChange={e => setDepartment(e.target.value)}>
+                    </InputField>}
                 </div>
 
-                <img className='user-image' src='./images/image.jpg' alt=''/>
+                <img className='user-image' src='./images/image.jpg' alt='' />
 
                 <div className='form-buttons'>
                     {Button && <Button link='/' className='new-form' onClick={reload}>Jauna forma</Button>}
